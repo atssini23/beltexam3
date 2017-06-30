@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | Registration</title>
+
+    <meta charset="UTF-8">
+</head>
+<body>
+                <h3>Register</h3>
+                <form class="form-horizontal" action='/register' method='post'>
+                    {% csrf_token %}
+
+                        <label for='name'>Name:</label>
+                        <input name='name' type='text' class='form-control' id='name'><br><br>
+
+
+                        <label for='last_name'>Alias:</label>
+                        <input name='alias' type='text' class='form-control' id='alias' placeholder='Alias'><br><br>
+
+
+                        <label for='email'>Email Address:</label>
+                        <input name='email' type='email' class='form-control' id='email' placeholder='Email'><br><br>
+
+                        <label for='password'>Password:</label>
+                        <input name='password' type='password' class='form-control' id='password' placeholder='Password'><br><br>
+
+                    <h5><i>*Password should be at least 8 characters</i></h5>
+
+                        <label for='confirm'>Confirm Password:</label>
+                        <input name='password_confirmation' type='password' class='form-control' id='confirm' placeholder='Confirm Password'><br><br>
+
+
+                        <label for='birthday'>Date of Birth:</label>
+                        <input name='birthday' type='date' class='form-control' id='birthday' placeholder='Birthday'><br><br>
+
+                    <input class="btn btn-success pull-right" type="submit" value="Register">
+                </form>
+
+                <h3>Login</h3>
+                <form class="form-horizontal" action='/login' method='post'>
+                    {% csrf_token %}
+
+                        <label for='email'>Email Address:</label>
+                        <input name='email' type='email' class='form-control' id='email' placeholder='Email'><br><br>
+
+                        <label for='password'>Password:</label>
+                        <input name='password' type='password' class='form-control' id='password' placeholder='Password'><br><br>
+
+                    <input class="btn btn-success pull-right" type="submit" value="Login">
+                </form>
+
+
+                    {% for error in errors %}
+                        <h4>{{error}}</h4>
+                    {% endfor %}
+
+</body>
+</html>
